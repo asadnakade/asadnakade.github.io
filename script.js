@@ -363,15 +363,23 @@ function initializeContactForm() {
         });
     }
     
-    // Simulate form submission
-    function simulateFormSubmission(formData) {
-        return new Promise((resolve) => {
-            // Simulate network delay
-            setTimeout(() => {
-                console.log('Form submitted with data:', formData);
-                resolve({ success: true });
-            }, 2000);
-        });
+    // Send email via backend API
+    async function sendEmail(formData) {
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+            
+            const result = await response.json();
+            return result;
+        } catch (error) {
+            console.error('Error sending email:', error);
+            return { success: false, message: 'Network error occurred' };
+        }
     }
     
     // Form submission handler
@@ -403,23 +411,29 @@ function initializeContactForm() {
         submitBtn.disabled = true;
         
         try {
-            // Simulate form submission
-            await simulateFormSubmission(formData);
+            // Send email via backend
+            const result = await sendEmail(formData);
             
-            // Show success message
-            formSuccess.classList.add('show');
-            
-            // Reset form after delay
-            setTimeout(() => {
-                contactForm.reset();
-                formSuccess.classList.remove('show');
+            if (result.success) {
+                // Show success message
+                formSuccess.classList.add('show');
+                
+                // Reset form after delay
+                setTimeout(() => {
+                    contactForm.reset();
+                    formSuccess.classList.remove('show');
+                    submitBtn.classList.remove('loading');
+                    submitBtn.disabled = false;
+                }, 3000);
+            } else {
+                alert('Failed to send message. Please try again or email me directly at asadnakade1@gmail.com');
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
-            }, 3000);
+            }
             
         } catch (error) {
             console.error('Form submission error:', error);
-            alert('There was an error submitting the form. Please try again.');
+            alert('Network error occurred. Please try again or email me directly at asadnakade1@gmail.com');
             submitBtn.classList.remove('loading');
             submitBtn.disabled = false;
         }
