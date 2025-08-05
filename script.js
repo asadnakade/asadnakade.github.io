@@ -1,7 +1,6 @@
 // DOM Content Loaded Event Listener
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all features
-    initializeLoading();
     initializeTheme();
     initializeNavigation();
     initializeTypingAnimation();
@@ -10,21 +9,27 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeContactForm();
     initializeAOS();
     
-    // Remove loading screen after everything is initialized
+    // Remove loading screen immediately after initialization
     setTimeout(() => {
         const loadingScreen = document.getElementById('loadingScreen');
-        loadingScreen.classList.add('hidden');
-    }, 1500);
+        if (loadingScreen) {
+            loadingScreen.classList.add('hidden');
+        }
+    }, 200);
 });
 
-// Loading Screen Initialization
-function initializeLoading() {
-    const loadingScreen = document.getElementById('loadingScreen');
-    
-    // Ensure loading screen is visible initially
-    loadingScreen.style.opacity = '1';
-    loadingScreen.style.visibility = 'visible';
-}
+// Fallback to ensure loading screen is removed even if there are issues
+window.addEventListener('load', function() {
+    setTimeout(() => {
+        const loadingScreen = document.getElementById('loadingScreen');
+        if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
+            loadingScreen.classList.add('hidden');
+            console.log('Loading screen removed by fallback');
+        }
+    }, 500);
+});
+
+// Removed initializeLoading function - loading screen now auto-hides
 
 // Theme Toggle Functionality
 function initializeTheme() {
@@ -447,19 +452,46 @@ function initializeContactForm() {
 
 // AOS (Animate On Scroll) Initialization
 function initializeAOS() {
+    // Wait for AOS library to load or timeout after 2 seconds
+    const initAOS = () => {
+        if (typeof AOS !== 'undefined') {
+            try {
+                AOS.init({
+                    duration: 800,
+                    easing: 'ease-in-out',
+                    once: true,
+                    offset: 100,
+                    delay: 100
+                });
+                
+                // Refresh AOS on window resize
+                window.addEventListener('resize', function() {
+                    AOS.refresh();
+                });
+                
+                console.log('AOS initialized successfully');
+            } catch (error) {
+                console.warn('AOS initialization failed:', error);
+            }
+        } else {
+            console.warn('AOS library not loaded, animations will be skipped');
+        }
+    };
+    
+    // Try to initialize immediately if AOS is already available
     if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            offset: 100,
-            delay: 100
-        });
-        
-        // Refresh AOS on window resize
-        window.addEventListener('resize', function() {
-            AOS.refresh();
-        });
+        initAOS();
+    } else {
+        // Wait for AOS to load with a timeout
+        let attempts = 0;
+        const maxAttempts = 20; // 2 seconds total
+        const checkAOS = setInterval(() => {
+            attempts++;
+            if (typeof AOS !== 'undefined' || attempts >= maxAttempts) {
+                clearInterval(checkAOS);
+                initAOS();
+            }
+        }, 100);
     }
 }
 
