@@ -1,0 +1,151 @@
+%PDF-1.4
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Contents 4 0 R
+/Resources <<
+/Font <<
+/F1 5 0 R
+>>
+>>
+>>
+endobj
+
+4 0 obj
+<<
+/Length 1500
+>>
+stream
+BT
+/F1 12 Tf
+50 742 Td
+(Asad Nakade) Tj
+0 -20 Td
+(Software Engineer) Tj
+0 -15 Td
+(Email: asadnakade1@gmail.com) Tj
+0 -15 Td
+(Phone: +91-7057275760) Tj
+0 -15 Td
+(LinkedIn: linkedin.com/in/asadnakade) Tj
+0 -15 Td
+(GitHub: github.com/asadnakade) Tj
+
+0 -30 Td
+(PROFESSIONAL SUMMARY) Tj
+0 -20 Td
+(Experienced Software Engineer with 2+ years of expertise in designing,) Tj
+0 -15 Td
+(developing, and maintaining robust software solutions. Proficient in Java,) Tj
+0 -15 Td
+(Spring Boot, Hibernate, and React.js with strong focus on TDD and) Tj
+0 -15 Td
+(microservices architecture.) Tj
+
+0 -30 Td
+(WORK EXPERIENCE) Tj
+0 -20 Td
+(Software Engineer - Capgemini Technology Service India Limited) Tj
+0 -15 Td
+(Dec 2022 - March 2025) Tj
+0 -15 Td
+(• Developed robust APIs using Java Spring Boot and Hibernate) Tj
+0 -15 Td
+(• Implemented microservices architecture using Spring Cloud) Tj
+0 -15 Td
+(• Achieved 10% reduction in code duplication and 15% increase in maintainability) Tj
+0 -15 Td
+(• Improved system functionality by 10% through legacy system evaluation) Tj
+
+0 -20 Td
+(Intern, JEE Full Stack with React - Capgemini) Tj
+0 -15 Td
+(July 2022 - Dec 2022) Tj
+0 -15 Td
+(• Built full-stack web applications using React.js, Java, Spring Boot, and MySQL) Tj
+0 -15 Td
+(• Developed reusable React components and integrated APIs using Axios) Tj
+
+0 -30 Td
+(PROJECTS) Tj
+0 -20 Td
+(Product Review Analysis System) Tj
+0 -15 Td
+(• Developed scalable monolithic architecture platform) Tj
+0 -15 Td
+(• Implemented Spring AOP for logging, error tracking, and authorization) Tj
+0 -15 Td
+(• Technologies: Java, Spring Boot, PostgreSQL, Spring Security, JUnit) Tj
+
+0 -30 Td
+(TECHNICAL SKILLS) Tj
+0 -20 Td
+(Languages: Java, JavaScript, SQL, HTML5, CSS) Tj
+0 -15 Td
+(Frameworks: Spring Boot, React.js, Hibernate, Maven) Tj
+0 -15 Td
+(Databases: PostgreSQL, MySQL, MongoDB) Tj
+0 -15 Td
+(Tools: Git, Jenkins, Postman, SonarQube, ActiveMQ) Tj
+
+0 -30 Td
+(EDUCATION) Tj
+0 -20 Td
+(Bachelor of Technology in Computer Science and Engineering) Tj
+0 -15 Td
+(Sanjay Ghodawat University, Kolhapur, Maharashtra) Tj
+0 -15 Td
+(Graduated: June 2022 | GPA: 8.2/10) Tj
+
+0 -25 Td
+(CERTIFICATIONS) Tj
+0 -20 Td
+(• Microsoft Certified: Azure Fundamentals AZ-900) Tj
+0 -15 Td
+(• Microsoft Certified: Azure Developer Associate AZ-204) Tj
+
+ET
+endstream
+endobj
+
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000254 00000 n 
+0000001806 00000 n 
+trailer
+<<
+/Size 6
+/Root 1 0 R
+>>
+startxref
+1883
+%%EOF
