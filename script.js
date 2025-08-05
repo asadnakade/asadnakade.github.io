@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeTypingAnimation();
     initializeSkillBars();
     initializeScrollEffects();
+    initializeScrollProgress();
     initializeContactForm();
     initializeAOS();
     
@@ -493,6 +494,25 @@ function initializeAOS() {
             }
         }, 100);
     }
+}
+
+// Scroll Progress Indicator
+function initializeScrollProgress() {
+    const scrollProgress = document.getElementById('scrollProgress');
+    
+    function updateScrollProgress() {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        
+        scrollProgress.style.width = scrollPercent + '%';
+    }
+    
+    // Update scroll progress on scroll
+    window.addEventListener('scroll', updateScrollProgress);
+    
+    // Initial call
+    updateScrollProgress();
 }
 
 // Resume Download Functionality
