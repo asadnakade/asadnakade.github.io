@@ -9,17 +9,17 @@
   --warning-color: #f59e0b;
   --error-color: #ef4444;
   
-  /* Light Theme Background Colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --bg-tertiary: #f1f5f9;
+  /* Light Theme Background Colors - Darker and More Subtle */
+  --bg-primary: #f1f5f9;
+  --bg-secondary: #e2e8f0;
+  --bg-tertiary: #cbd5e1;
   --bg-card: #ffffff;
-  --bg-overlay: rgba(255, 255, 255, 0.9);
+  --bg-overlay: rgba(241, 245, 249, 0.95);
   
   /* Light Theme Text Colors */
   --text-primary: #1e293b;
-  --text-secondary: #64748b;
-  --text-muted: #94a3b8;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
   --text-inverse: #ffffff;
   
   /* Light Theme Border Colors */
@@ -251,7 +251,7 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
   position: relative;
   overflow: hidden;
 }
@@ -393,24 +393,44 @@ body {
 
 .profile-card {
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 320px;
+  height: 400px;
   background: var(--bg-card);
-  border-radius: 20px;
+  border-radius: 25px;
   box-shadow: var(--shadow-xl);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  border: 3px solid var(--border-primary);
+  transition: transform var(--transition-medium);
 }
 
-.profile-avatar {
-  font-size: 8rem;
-  color: var(--primary-color);
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.profile-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 22px;
+  transition: transform var(--transition-medium);
+  filter: brightness(1.05) contrast(1.1);
+}
+
+.profile-photo:hover img {
+  transform: scale(1.05);
 }
 
 .floating-icons {
